@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-3lE3JOwhoxeuH8r1O9QQzC8yQz6A71m1Ky5X5qP2M2vXGvhYJr3nbueL5TcysT0F6eT3UwmmQz2l5LPv6As+Tw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Markdown Editor</h1>
+            <div class="menu">
+                <button onclick="newFile()">New File</button>
+                <div class="dropdown">
+                    <button class="dropbtn">Files <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content" id="fileList">
+                        <!-- Dynamically populated with JavaScript -->
+                    </div>
+                </div>
+                <button onclick="showMarkdownGuide()">Markdown Editor Guide</button>
+            </div>
+        </header>
+        <div class="editor">
+            <textarea id="markdownInput" placeholder="Start typing or paste Markdown content here..." oninput="handleMarkdownInput()"></textarea>
+            <div id="markdownOutput" class="markdown-output"></div>
+        </div>
+        <div id="markdownGuide" class="markdown-guide">
+            <h2>Markdown Editor Guide</h2>
+            <ul>
+                <li><a id="boldGuide" href="#">Bold text:</a> Enclose text with ** or __</li>
+                <li><a id="italicGuide" href="#">Italic text:</a> Enclose text with * or _</li>
+                <li><a id="heading1Guide" href="#">Heading 1:</a> Prefix text with # (e.g., # My Heading)</li>
+                <li><a id="heading2Guide" href="#">Heading 2:</a> Prefix text with ## (e.g., ## Subheading)</li>
+                <li><a id="heading3Guide" href="#">Heading 3:</a> Prefix text with ### (e.g., ### Sub-subheading)</li>
+                <li><a id="bulletListGuide" href="#">Bulleted list:</a> Prefix each item with - (e.g., - Item 1)</li>
+                <li><a id="numberedListGuide" href="#">Numbered list:</a> Prefix each item with 1. (e.g., 1. Item A)</li>
+                <li><a id="codeGuide" href="#">Inline <code>code:</code></a> Enclose text with ` (backtick)</li>
+                <li><a id="emojiGuide" href="#">Insert an <img src="https://emojicombos.com/images/emoji/apple/ios-12.1/hundred-points-symbol.png" alt="emoji" width="20" height="20"/> emoji</a> by typing `:emoji-name:`</li>
+            </ul>
+        </div>
+        <button onclick="renderMarkdown()" class="render-button">Render</button>
+    </div>
+
+    <script src="marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
